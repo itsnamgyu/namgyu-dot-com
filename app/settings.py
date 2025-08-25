@@ -12,19 +12,33 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
+import sys
+
+import environ
+
+print("Loading settings.py...", file=sys.stderr)
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Read environment variables from .env file (optional)
+TEST_SECRET_KEY = "django-insecure-lw!vs_6t$ds%9gx)do=-b0)9fvf00t-^i_vhvbn)%3q&l2kz_k"
+env = environ.Env(
+    DEBUG=(bool, True),
+    STATIC_ROOT=(str, None),
+    MEDIA_ROOT=(str, None),
+    SECRET_KEY=(str, TEST_SECRET_KEY),
+)
+environ.Env.read_env(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-lw!vs_6t$ds%9gx)do=-b0)9fvf00t-^i_vhvbn)%3q&l2kz_k"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don"t run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -119,6 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = env("STATIC_ROOT")
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = env("MEDIA_ROOT")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
