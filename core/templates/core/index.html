@@ -1,0 +1,68 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'core/css/index.css' %}">
+{% endblock %}
+{% block body %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-11 col-md-12 col-lg-11 col-xl-8">
+        <div class="row hero">
+          <div class="col-12">
+            <div class="d-block d-md-none hero-image text-center">
+              <img src="{% static 'core/img/namgyu.jpeg' %}"
+                   alt="Namgyu Ho"
+                   class="img-fluid w-75">
+            </div>
+            <h1 class="name">
+              Namgyu Ho <span class="name-kr">허남규</span>
+            </h1>
+          </div>
+          <div class="col-12 col-md-7 mb-3">
+            {% comment %} <h1 class="name-kr text-center">허남규</h1> {% endcomment %}
+            <div class="hero-paragraph">
+              <div>
+                I'm a PhD student at <a href="https://osi.kaist.ac.kr" target="_blank">OSI LAB</a> of KAIST AI in Seoul.
+              </div>
+              <div lang="kr">저는 서울 소재 카이스트 김재철AI대학원 OSI 연구실에서 박사과정을 하고 있습니다.</div>
+            </div>
+            <div class="hero-paragraph">
+              <div>I am interested in uncovering novel techniques to enable efficient reasoning in large language models.</div>
+              <div lang="kr">ChatGPT와 같은 언어 모델을 더 빠르고 똑똑하게 만드는 연구를 하고 있습니다.</div>
+            </div>
+            <div class="hero-paragraph">
+              <div>
+                Previously, I completed my B.S. in CSE at Sogang University and my M.S. in AI at KAIST.
+                I also spent time at LG AI Research in Seoul and Google DeepMind in New York as a research intern.
+              </div>
+              <div lang="kr">열심히 살고 있습니다.</div>
+            </div>
+            <div class="hero-paragraph">
+              <div>I enjoy tennis and singing. And coffee.</div>
+              <div lang="kr">테니스와 노래를 잘하고 싶습니다. 커피 조아</div>
+            </div>
+            <div class="hero-paragraph updated-date">
+              <div>Updated August 2025.</div>
+            </div>
+          </div>
+          <div class="d-none d-md-block col-md-5 hero-image mb-3">
+            <img src="{% static 'core/img/namgyu.jpeg' %}"
+                 alt="Namgyu Ho"
+                 class="img-fluid">
+          </div>
+          <div class="col-12">
+            <a href="http://cv.namgyu.com" target="_blank">CV</a> /
+            <a href="https://scholar.google.com/citations?user=4vOf7N8AAAAJ&hl=en"
+               target="_blank">Scholar</a> /
+            <a href="https://x.com/itsnamgyu" target="_blank">Twitter</a> /
+            <a href="https://www.linkedin.com/in/itsnamgyu/" target="_blank">LinkedIn</a> /
+            <a href="https://github.com/itsnamgyu" target="_blank">GitHub</a> /
+            its[firstname]@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
